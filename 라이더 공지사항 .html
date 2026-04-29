@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+        word-break: keep-all;
+      }
+      .font-outfit {
+        font-family: 'Outfit', sans-serif;
+      }
+      .gradient-blue {
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      }
+      .sidebar-item-active {
+        background-color: #eff6ff;
+        color: #1d4ed8;
+        font-weight: 700;
+        border-right: 4px solid #1d4ed8;
+      }
+      .content-page {
+        display: none;
+      }
+      .content-page.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="bg-white min-h-screen">
+    <div class="flex flex-col md:flex-row min-h-screen">
+      <!-- Sidebar -->
+      <aside class="w-full md:w-64 bg-white shadow-md z-10">
+        <div class="p-6 border-b border-gray-100 flex items-center gap-3">
+          <div class="bg-blue-600 w-8 h-8 rounded-lg flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h1 class="text-xl font-bold text-gray-800 tracking-tight">공지사항</h1>
+        </div>
+        <nav class="mt-4">
+          <button onclick="showPage('policy-withdrawal', this)" class="sidebar-btn sidebar-item-active w-full text-left px-6 py-4 transition-all hover:bg-gray-50 text-sm">
+            출금 정책 변경 안내
+          </button>
+          <button onclick="showPage('policy-insurance', this)" class="sidebar-btn w-full text-left px-6 py-4 transition-all hover:bg-gray-50 text-sm text-gray-600">
+            고용보험 및 예치금 정책 변경
+          </button>
+        </nav>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="flex-1 flex justify-center items-start p-4 md:p-10">
+        
+        <!-- Page 1: Withdrawal Policy -->
+        <div id="policy-withdrawal" class="content-page active max-w-[420px] w-full bg-white shadow-2xl sm:rounded-[32px] overflow-hidden">
+          <!-- Header -->
+          <div class="bg-blue-600 p-5 pt-7 pb-6 text-white text-center">
+            <div class="inline-block bg-blue-500/30 backdrop-blur-sm border border-blue-400/30 px-4 py-1 rounded-full text-[11px] font-semibold mb-2 uppercase tracking-widest">
+              그라이더 & 그라이더+ 대상
+            </div>
+            <h2 class="text-lg font-bold text-white leading-tight">
+              출금 정책 변경 안내 (D+2일 도입)
+            </h2>
+          </div>
+
+          <div class="flex-1 px-6 py-8 space-y-10">
+            <!-- Section 1: Why? -->
+            <section>
+              <div class="flex items-start gap-3 mb-6">
+                <div>
+                  <h3 class="text-base font-bold text-red-600 mb-1.5 leading-snug">
+                    안전한 정산 환경을 위해 출금 방식이 변경됩니다.
+                  </h3>
+                  <p class="text-gray-500 leading-relaxed text-[13px]">
+                    최근 일부 부적절한 배달 사례를 방지하고 성실한 라이더분들을 보호하기 위해 <strong>정산 검증 기간(D+2일)</strong>을 도입합니다.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- 적용 일자 박스 -->
+              <div class="p-5 bg-blue-50/80 rounded-2xl border border-blue-100 text-center shadow-sm">
+                <div class="text-[12px] font-bold text-blue-500 mb-1.5 tracking-tight uppercase">적용 일자</div>
+                <div class="text-xl font-bold text-gray-800 font-outfit tracking-tight">
+                  2026. 04. 30 (목) 00:00 ~
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 2: Timeline Visualization -->
+            <section>
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-1.5 h-5 bg-blue-600 rounded-full"></div>
+                <h2 class="text-lg font-bold text-gray-800">정산 및 출금 흐름</h2>
+              </div>
+              
+              <div class="flex flex-col gap-4 relative">
+                <!-- Day 0 -->
+                <div class="flex items-center bg-white p-4 rounded-2xl border-2 border-blue-500 relative min-h-[72px]">
+                  <div class="w-12 text-center shrink-0 flex flex-col justify-center">
+                    <div class="text-blue-600 font-bold text-xs leading-none mb-1">D-Day</div>
+                    <div class="text-gray-800 font-bold leading-none">수</div>
+                  </div>
+                  <div class="ml-4 border-l border-blue-100 pl-4 flex flex-col justify-center text-left">
+                    <div class="text-sm font-bold text-gray-800 leading-tight">배달 수행</div>
+                    <div class="text-[11px] text-gray-400 mt-1 leading-none">수익 발생 (00:00~23:59)</div>
+                  </div>
+                  <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 text-blue-500 z-10 bg-white rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- Day 1 -->
+                <div class="flex items-center bg-white p-4 rounded-2xl border-2 border-orange-400 relative min-h-[72px]">
+                  <div class="w-12 text-center shrink-0 flex flex-col justify-center">
+                    <div class="text-orange-500 font-bold text-xs leading-none mb-1">D+1</div>
+                    <div class="text-gray-800 font-bold leading-none">목</div>
+                  </div>
+                  <div class="ml-4 border-l border-orange-100 pl-4 flex flex-col justify-center text-left">
+                    <div class="text-sm font-bold text-gray-800 leading-tight">정산 및 배송상태 검증</div>
+                    <div class="text-[11px] text-gray-400 mt-1 leading-none">미정산 금액으로 보관</div>
+                  </div>
+                  <div class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 text-orange-400 z-10 bg-white rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- Day 2 -->
+                <div class="flex items-center bg-blue-600 p-4 rounded-2xl shadow-lg relative min-h-[72px]">
+                  <div class="w-12 text-center shrink-0 flex flex-col justify-center">
+                    <div class="text-blue-200 font-bold text-xs leading-none mb-1">D+2</div>
+                    <div class="text-white font-bold leading-none">금</div>
+                  </div>
+                  <div class="ml-4 border-l border-blue-400 pl-4 flex flex-col justify-center text-left">
+                    <div class="text-sm font-bold text-white leading-tight">출금 가능 전환</div>
+                    <div class="text-[11px] text-blue-100 mt-1 leading-none">오전 06:00 부터 출금 가능</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 3: App UI Guide -->
+            <section>
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-1.5 h-5 bg-blue-600 rounded-full"></div>
+                <h2 class="text-lg font-bold text-gray-800">앱에서 확인하는 방법</h2>
+              </div>
+              <div class="w-full bg-gray-50 rounded-2xl p-4 border border-gray-100 mb-6">
+                <div class="bg-white rounded-xl shadow-sm p-5 text-[12px] space-y-4">
+                  <div class="flex justify-between">
+                    <span class="text-gray-400">현재 보유 금액</span>
+                    <span class="font-semibold text-gray-800">1,000,000원</span>
+                  </div>
+                  <div class="flex justify-between bg-blue-50 rounded-xl px-4 py-3 border border-dashed border-blue-100">
+                    <span class="font-bold text-blue-700">출금 가능 금액</span>
+                    <span class="font-bold text-blue-700">880,000원</span>
+                  </div>
+                  <div class="space-y-3">
+                    <div class="flex justify-between text-gray-400 px-1">
+                      <span>출금 불가능 금액</span>
+                      <span>120,000원</span>
+                    </div>
+                    <div class="flex justify-between text-red-500 font-bold bg-red-50 px-4 py-2.5 rounded-xl border border-red-100/50">
+                      <span>ㄴ 미정산 금액</span>
+                      <span>120,000원</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div class="flex gap-3">
+                  <span class="bg-blue-600 text-white w-5 h-5 flex items-center justify-center rounded-full text-[10px] shrink-0 font-bold mt-0.5">1</span>
+                  <p class="text-[13px] text-gray-600 leading-tight text-left">메뉴 <strong>[출금하기]</strong> 화면 접속</p>
+                </div>
+                <div class="flex gap-3">
+                  <span class="bg-red-600 text-white w-5 h-5 flex items-center justify-center rounded-full text-[10px] shrink-0 font-bold mt-0.5">2</span>
+                  <p class="text-[13px] text-gray-700 leading-tight text-left">정산 중인 금액은 <strong>[미정산 금액]</strong>에서 실시간 확인 가능합니다.</p>
+                </div>
+                <div class="flex gap-3">
+                  <span class="bg-blue-600 text-white w-5 h-5 flex items-center justify-center rounded-full text-[10px] shrink-0 font-bold mt-0.5">3</span>
+                  <p class="text-[13px] text-gray-600 leading-tight text-left">수행일로부터 2일 뒤 <strong>오전 06:00</strong>에 출금 가능 금액으로 자동 전환됩니다.</p>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Footer Area -->
+          <div class="p-8 bg-white text-center border-t border-gray-100">
+            <p class="text-[13px] text-gray-600 font-medium leading-relaxed">
+              ※ 본 정책은 정직한 배송 환경 조성을 위한<br/>불가피한 조치이오니 너그러운 양해 부탁드립니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Page 2: Employment Insurance -->
+        <div id="policy-insurance" class="content-page max-w-[420px] w-full bg-white shadow-2xl sm:rounded-[32px] overflow-hidden">
+          <!-- Header -->
+          <div class="bg-blue-600 p-5 pt-7 pb-6 text-white text-center">
+            <div class="inline-block bg-blue-500/30 backdrop-blur-sm border border-blue-400/30 px-4 py-1 rounded-full text-[11px] font-semibold mb-2 uppercase tracking-widest">
+              그라이더 & 그라이더+ 대상
+            </div>
+            <h2 class="text-lg font-bold text-white leading-tight">
+              고용보험 및 예치금 정책 변경 안내
+            </h2>
+          </div>
+
+          <div class="flex-1 px-6 py-8 space-y-10">
+            <section>
+              <p class="text-gray-600 leading-relaxed text-sm mb-6 text-left">
+                안녕하세요. 라이더 여러분의 권익 보호와 공정한 정산 환경을 위해 <strong class="text-blue-600 font-bold">고용보험료 산정 방식 및 예치금 정책</strong>이 아래와 같이 변경됩니다.
+              </p>
+              <div class="p-5 bg-blue-50/80 rounded-2xl border border-blue-100 text-center shadow-sm">
+                <div class="text-[12px] font-bold text-blue-500 mb-1.5 tracking-tight uppercase">적용 일자</div>
+                <div class="text-xl font-bold text-gray-800 font-outfit tracking-tight">
+                  2026. 05. 01 (금) 00:00 ~
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-1.5 h-5 bg-blue-600 rounded-full"></div>
+                <h2 class="text-lg font-bold text-gray-800 text-left">고용보험료 산정 방식</h2>
+              </div>
+              <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100">
+                <p class="text-[13px] text-gray-500 mb-5 italic text-center leading-tight">보수액(배달비-경비)에 요율을 곱하여 산정합니다.</p>
+                <div class="space-y-4">
+                  <div class="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm border border-gray-50">
+                    <div class="flex flex-col text-left">
+                      <span class="text-[10px] text-blue-500 font-bold uppercase tracking-tight">1단계. 경비 제외</span>
+                      <span class="text-sm font-semibold text-gray-700">필요경비 19.8%</span>
+                    </div>
+                    <span class="text-blue-600 font-bold text-sm">자동 차감</span>
+                  </div>
+                  <div class="flex justify-center -my-3 relative z-10">
+                    <div class="bg-white rounded-full p-1.5 text-gray-500 border border-gray-200 shadow-md flex items-center justify-center">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+                       </svg>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm border border-gray-50">
+                    <div class="flex flex-col text-left">
+                      <span class="text-[10px] text-blue-500 font-bold uppercase tracking-tight">2단계. 요율 적용</span>
+                      <span class="text-sm font-semibold text-gray-700">보험 요율 적용</span>
+                    </div>
+                    <span class="text-blue-600 font-bold text-sm">구간별 차등 요율</span>
+                  </div>
+                  <div class="flex justify-center -my-3 relative z-10">
+                    <div class="bg-white rounded-full p-1.5 text-gray-500 border border-gray-200 shadow-md flex items-center justify-center rotate-90">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 9h16M4 15h16" />
+                       </svg>
+                    </div>
+                  </div>
+                  <div class="p-5 bg-blue-600 rounded-xl text-center shadow-lg shadow-blue-100 mt-2">
+                    <div class="text-[10px] text-blue-200 font-bold mb-2 uppercase tracking-widest font-outfit">최종 산정 결과</div>
+                    <div class="text-[15px] font-bold text-white leading-relaxed">
+                      <span class="text-blue-100 text-[11px] font-normal block mb-1">[(배달비 - 필요경비 19.8%)] × 요율</span>
+                      최종 고용보험료
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 섹션 2: 차등 요율 구간 -->
+            <section>
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-1.5 h-5 bg-blue-600 rounded-full"></div>
+                <h2 class="text-lg font-bold text-gray-800">보수액 기준 차등 요율 구간</h2>
+              </div>
+              
+              <div class="space-y-3">
+                <!-- 133만원 미만 -->
+                <div class="p-6 bg-blue-50 border border-blue-100 rounded-2xl shadow-sm flex flex-col items-center text-center">
+                  <span class="text-base font-bold text-gray-800 mb-3">133만원 미만</span>
+                  <span class="bg-blue-600 text-white text-[15px] font-bold px-6 py-1.5 rounded-full font-outfit tracking-tight shadow-md shadow-blue-200 mb-3">
+                    건당 1.35%
+                  </span>
+                  <p class="text-[12px] text-blue-600/70 font-medium tracking-tight">보수액 기준 건당 1.35% 차감</p>
+                </div>
+                
+                <!-- 133만원 이상 -->
+                <div class="p-6 bg-blue-50 border border-blue-100 rounded-2xl shadow-sm flex flex-col items-center text-center">
+                  <span class="text-base font-bold text-gray-800 mb-3">133만원 이상</span>
+                  <span class="bg-blue-600 text-white text-[15px] font-bold px-6 py-1.5 rounded-full font-outfit tracking-tight shadow-md shadow-blue-200 mb-3">
+                    건당 0.8%
+                  </span>
+                  <p class="text-[12px] text-blue-600/70 font-medium tracking-tight">보수액 기준 건당 0.8% 차감</p>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-1.5 h-5 bg-blue-600 rounded-full"></div>
+                <h2 class="text-lg font-bold text-gray-800 text-left">건당 정산 예시 (배달비 3,000원)</h2>
+              </div>
+              <div class="bg-white rounded-2xl border border-blue-100 overflow-hidden shadow-sm">
+                <div class="p-4 bg-blue-50/50 border-b border-blue-100">
+                   <div class="flex justify-between items-center text-[13px] mb-1">
+                      <span class="text-gray-500 italic font-medium text-left">필요경비 제외 보수액</span>
+                      <span class="font-bold text-gray-800 font-outfit tracking-tight text-right">2,406원</span>
+                   </div>
+                   <p class="text-[10px] text-gray-400 text-right leading-none mt-1">3,000원 - 594원(19.8%) = 2,406원</p>
+                </div>
+                <div class="p-5 space-y-5">
+                   <div class="text-left">
+                      <div class="flex justify-between items-center mb-2">
+                         <span class="text-[13px] font-bold text-gray-700">1. 월 보수액 133만원 <strong class="text-blue-600 font-bold">미만</strong></span>
+                         <span class="bg-blue-600 text-white text-[11px] font-bold px-2 py-0.5 rounded-md font-outfit">1.35%</span>
+                      </div>
+                      <div class="flex justify-between items-end bg-gray-50 p-3 rounded-xl border border-gray-100 font-outfit">
+                         <span class="text-[11px] text-gray-400 font-medium italic leading-tight font-outfit">2,406원 × 1.35% =</span>
+                         <div class="text-right">
+                            <span class="text-lg font-bold text-blue-600 font-outfit tracking-tight">32</span>
+                            <span class="text-[13px] font-bold text-blue-600">원 차감</span>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="text-left">
+                      <div class="flex justify-between items-center mb-2">
+                         <span class="text-[13px] font-bold text-gray-700">2. 월 보수액 133만원 <strong class="text-blue-600 font-bold">이상</strong></span>
+                         <span class="bg-blue-600 text-white text-[11px] font-bold px-2 py-0.5 rounded-md font-outfit">0.8%</span>
+                      </div>
+                      <div class="flex justify-between items-end bg-gray-50 p-3 rounded-xl border border-gray-100 font-outfit">
+                         <span class="text-[11px] text-gray-400 font-medium italic leading-tight font-outfit">2,406원 × 0.8% =</span>
+                         <div class="text-right">
+                            <span class="text-lg font-bold text-blue-600 font-outfit tracking-tight">19</span>
+                            <span class="text-[13px] font-bold text-blue-600">원 차감</span>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="bg-red-50 -mx-6 px-6 py-8 border-y border-red-100/50">
+              <div class="flex items-center justify-center gap-2 mb-4">
+                <div class="w-1.5 h-5 bg-red-500 rounded-full"></div>
+                <h2 class="text-lg font-bold text-gray-800">저소득 라이더 보험료 환급</h2>
+              </div>
+              <div class="bg-white p-5 rounded-2xl shadow-md border border-red-100 text-left">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="p-2 bg-red-100 rounded-lg text-red-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <p class="text-sm font-bold text-gray-800">월 보수액 80만원 미만인 경우</p>
+                </div>
+                <p class="text-[13px] text-gray-600 leading-relaxed mb-4 text-left">
+                  월 소득 기준 약 <strong>997,500원 미만</strong>일 경우, 매월 초 기 납부한 고용보험료를 자동으로 환급해 드립니다.
+                </p>
+                <div class="bg-red-50 p-3 rounded-xl text-center border border-red-100">
+                  <span class="text-[12px] font-bold text-red-600">매월 초 자동 환급 (별도 신청 불필요)</span>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-1.5 h-5 bg-blue-600 rounded-full"></div>
+                <h2 class="text-lg font-bold text-gray-800 text-left">보증금 전액 반환 안내</h2>
+              </div>
+              <div class="bg-gray-50 rounded-2xl p-5 border border-gray-100 mb-6 relative overflow-hidden text-center">
+                 <div class="text-[10px] text-gray-400 font-bold mb-3 uppercase tracking-wider text-left">변경 전 : 사이드 메뉴</div>
+                 <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 space-y-3 text-left">
+                    <div class="flex justify-between items-center text-sm opacity-50">
+                        <span class="text-gray-700 font-medium">캐시</span>
+                        <span class="font-bold tracking-tight font-outfit">0원</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm relative">
+                        <span class="text-gray-900 font-bold">고용보험보증금</span>
+                        <span class="font-bold text-blue-600 tracking-tight font-outfit">10,640원</span>
+                        <div class="absolute -right-2 -top-1 w-20 h-8 border-2 border-red-500 rounded-lg animate-pulse"></div>
+                    </div>
+                    <div class="flex justify-between items-center text-sm opacity-50">
+                        <span class="text-gray-700 font-medium">미납금</span>
+                        <span class="font-bold tracking-tight font-outfit">0원</span>
+                    </div>
+                 </div>
+                 
+                 <div class="flex justify-center my-4">
+                    <div class="bg-blue-600 text-white rounded-full p-1 shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </div>
+                 </div>
+
+                 <div class="bg-blue-600 rounded-xl p-5 text-center text-white shadow-xl relative overflow-hidden border border-blue-400">
+                    <div class="text-[10px] text-blue-200 font-bold mb-1 uppercase tracking-widest font-outfit"></div>
+                    <h3 class="text-3xl font-outfit font-bold mb-1 tracking-tight">10,640원</h3>
+                    <p class="text-sm font-bold">출금 가능 금액으로 전환</p>
+                 </div>
+              </div>
+              <p class="text-[13px] text-gray-500 leading-relaxed px-2 text-left">
+                사이드 메뉴에 표시되던 <strong class="text-gray-800 font-bold">고용보험보증금</strong>이 전액 출금 가능 금액으로 자동 전환됩니다.
+              </p>
+              
+              <!-- 반환 일자 박스 -->
+              <div class="mt-8 p-5 bg-blue-50/80 rounded-2xl border border-blue-100 text-center shadow-sm">
+                <div class="text-[12px] font-bold text-blue-500 mb-1.5 tracking-tight uppercase">반환 일자</div>
+                <div class="text-xl font-bold text-gray-800 font-outfit tracking-tight">
+                  2026. 05. 08 (금)
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Footer Area -->
+          <div class="p-8 bg-white text-center border-t border-gray-100">
+            <p class="text-[13px] text-gray-600 font-medium leading-relaxed">본 정책은 정부 지침 및 플랫폼 운영 방침에 따릅니다.</p>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <script>
+      function showPage(pageId, btn) {
+        // 모든 페이지 숨기기
+        document.querySelectorAll('.content-page').forEach(page => {
+          page.classList.remove('active');
+        });
+        
+        // 대상 페이지 보이기
+        document.getElementById(pageId).classList.add('active');
+        
+        // 버튼 스타일 업데이트
+        document.querySelectorAll('.sidebar-btn').forEach(button => {
+          button.classList.remove('sidebar-item-active');
+          button.classList.add('text-gray-600');
+          button.classList.remove('text-blue-600');
+        });
+        
+        btn.classList.add('sidebar-item-active');
+        btn.classList.remove('text-gray-600');
+      }
+    </script>
+  </body>
+</html>
